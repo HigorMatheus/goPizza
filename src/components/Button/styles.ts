@@ -1,23 +1,23 @@
 import styled, { css } from 'styled-components/native';
 
-import { RectButton } from 'react-native-gesture-handler';
-
 export type TypeProps = 'primary' | 'secondary';
 
 type ContainerProps = {
   type: TypeProps;
 };
 
-export const Container = styled(RectButton)<ContainerProps>`
+export const Container = styled.TouchableOpacity<ContainerProps>`
   flex: 1;
+
   max-height: 56px;
   min-height: 56px;
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   border-radius: 12px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme, type }) =>
-    type === 'primary' ? theme.COLORS.SUCCESS_900 : theme.COLORS.PRIMARY_800};
+    type === 'primary' ? theme.COLORS.SUCCESS_900 : theme.COLORS.PRIMARY_900};
 `;
 
 export const Title = styled.Text`

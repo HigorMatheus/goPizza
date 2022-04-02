@@ -1,5 +1,11 @@
-import styled from 'styled-components/native';
+import { ScrollViewProps } from 'react-native';
+import {
+  getBottomSpace,
+  getStatusBarHeight,
+} from 'react-native-iphone-x-helper';
+
 import { LinearGradient } from 'expo-linear-gradient';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled(LinearGradient).attrs(({ theme }) => {
   return {
@@ -13,7 +19,47 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => {
   justify-content: center;
 `;
 
-export const Text = styled.Text`
+export const Content = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    paddingBottom: getBottomSpace() + 48,
+    paddingTop: getStatusBarHeight(),
+  },
+} as ScrollViewProps)`
   flex: 1;
-  background-color: #333;
+  width: 100%;
+  padding: 0 32px;
+`;
+
+export const Title = styled.Text`
+  font-size: 32px;
+  margin-bottom: 24px;
+  align-self: flex-start;
+
+  ${({ theme }) => css`
+    font-family: ${theme.FONTS.TITLE};
+    color: ${theme.COLORS.TITLE};
+  `}
+`;
+
+export const Brand = styled.Image.attrs({
+  sizeMode: 'contain',
+})`
+  height: 370px;
+  /* width: 100%; */
+
+  margin-top: 64px;
+  margin-bottom: 32px;
+`;
+
+export const ForgotPasswordButton = styled.TouchableOpacity`
+  align-self: flex-end;
+  margin-bottom: 20px;
+`;
+export const ForgotPasswordLabel = styled.Text`
+  font-size: 14px;
+  ${({ theme }) => css`
+    font-family: ${theme.FONTS.TEXT};
+    color: ${theme.COLORS.TITLE};
+  `}
 `;
