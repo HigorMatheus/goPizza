@@ -6,6 +6,7 @@ import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components/native';
 
+import { AuthProvider } from './hook/auth';
 import { SignIn } from './screens/SignIn';
 import theme from './theme';
 
@@ -25,7 +26,9 @@ export default function App() {
         translucent
         backgroundColor="transparent"
       />
-      <SignIn />
+      <AuthProvider>
+        <SignIn />
+      </AuthProvider>
     </ThemeProvider>
   );
 }

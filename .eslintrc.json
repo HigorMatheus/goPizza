@@ -30,7 +30,6 @@
         "import-helpers/order-imports": [
             "error",
             {
-                "newlinesBetween": "always",
                 "groups": [
                     "/^react/",
                     "module",
@@ -53,6 +52,7 @@
         "react-hooks/exhaustive-deps": "warn",
         "react/require-default-props": "off",
         "react/jsx-props-no-spreading": "off",
+        "react/jsx-no-constructed-context-values":"off",
         "camelcase": "off",
         "react/jsx-filename-extension": [
             1,
